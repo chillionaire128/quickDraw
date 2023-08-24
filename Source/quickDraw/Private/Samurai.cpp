@@ -2,6 +2,7 @@
 
 
 #include "Samurai.h"
+#include "Math/Vector.h"
 #include "PaperSpriteComponent.h"
 
 // Sets default values
@@ -11,9 +12,7 @@ ASamurai::ASamurai()
 	PrimaryActorTick.bCanEverTick = true;
 
 	PrimarySprite = CreateDefaultSubobject<UPaperSpriteComponent>("PaperSprite");
-	
-	SlideInStartX = 0;
-	SlideInStartY = 0;
+
 }
 
 // Called when the game starts or when spawned
@@ -36,9 +35,3 @@ void ASamurai::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
-
-void ASamurai::SlideIn() {
-	//GetActorLocation();
-	return;
-}
-
