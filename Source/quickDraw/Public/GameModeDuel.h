@@ -10,6 +10,7 @@
  * 
  */
 
+class ASamurai;
 
 UCLASS()
 class QUICKDRAW_API AGameModeDuel : public AGameModeBase
@@ -50,6 +51,10 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> ReadyToDrawClass;
+
+	UPROPERTY(EditAnywhere)
+	ASamurai* PlayerCharacter;
+
 
 	virtual void Tick(float DeltaTime) override;
 
