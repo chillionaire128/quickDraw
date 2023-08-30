@@ -9,16 +9,51 @@
 /**
  * 
  */
+
+
 UCLASS()
 class QUICKDRAW_API AGameModeDuel : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
 public:
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+
+	enum class EGamePhases : uint8
+	{
+		Intro,
+		Wait,
+		Draw,
+		Finish
+	};
+
+	EGamePhases CurrentState;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float ElaspedTime;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	float RoundStartTime;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	float MinDrawTime;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	float MaxDrawTime;
+
+	float DrawTime;
+
+	UFUNCTION(BlueprintCallable, Category = "Debug")
+	FString GamePhaseToString();
+
+	UFUNCTION(BlueprintCallable)
+	bool canDraw();
 
 	virtual void Tick(float DeltaTime) override;
 
+
 	AGameModeDuel();
+
+private:
+	static float createRandomDrawTime(float min, float max);
+
 };
