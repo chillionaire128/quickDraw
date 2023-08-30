@@ -1,14 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Engine/GameEngine.h"
+
 #include "GameModeDuel.h"
+#include "Engine/GameEngine.h"
 
 AGameModeDuel::AGameModeDuel() {
 	ElaspedTime = 0;
 	RoundStartTime = 1;
 	MinDrawTime = 1;
 	MaxDrawTime = 4;
-	DrawTime = createRandomDrawTime(MinDrawTime, MaxDrawTime);
+	DrawTime = CreateRandomDrawTime(MinDrawTime, MaxDrawTime);
 	CurrentState = EGamePhases::Intro;
 }
 
@@ -21,6 +22,7 @@ void AGameModeDuel::Tick(float DeltaTime)
 	}
 	if (ElaspedTime >= DrawTime + RoundStartTime) {
 		CurrentState = EGamePhases::Draw;
+		SpawnReadyToDrawActor();
 	}
 
 	Super::Tick(DeltaTime);
@@ -43,7 +45,7 @@ FString AGameModeDuel::GamePhaseToString() {
 	
 }
 
-float AGameModeDuel::createRandomDrawTime(float min, float max) {
+float AGameModeDuel::CreateRandomDrawTime(float min, float max) {
 	float random = ((float)rand()) / (float)RAND_MAX;
 	float range = max - min;
 	return (random * range) + min;
@@ -56,4 +58,8 @@ bool AGameModeDuel::canDraw() {
 	else {
 		return false;
 	}
+}
+
+void AGameModeDuel::SpawnReadyToDrawActor() {
+	GetWorld()->SpawnActor<AActor>(ReadyToDrawClass);
 }

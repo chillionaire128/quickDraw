@@ -48,12 +48,17 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool canDraw();
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> ReadyToDrawClass;
+
 	virtual void Tick(float DeltaTime) override;
 
 
 	AGameModeDuel();
 
 private:
-	static float createRandomDrawTime(float min, float max);
+	static float CreateRandomDrawTime(float min, float max);
+	
+	void SpawnReadyToDrawActor();
 
 };
