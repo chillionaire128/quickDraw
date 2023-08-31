@@ -52,9 +52,6 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> ReadyToDrawClass;
 
-	UPROPERTY(EditAnywhere)
-	ASamurai* PlayerCharacter;
-
 
 	virtual void Tick(float DeltaTime) override;
 
