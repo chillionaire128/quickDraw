@@ -21,6 +21,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Sprite)
 	UPaperSpriteComponent* PrimarySprite;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Sprite)
+	UPaperSpriteComponent* FailureSprite;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

@@ -43,8 +43,8 @@ public:
 
 	float DrawTime;
 
-	UFUNCTION(BlueprintCallable, Category = "Debug")
-	FString GamePhaseToString();
+	UFUNCTION(BlueprintCallable)
+	int GamePhaseToInt();
 
 	UFUNCTION(BlueprintCallable)
 	bool canDraw();
@@ -52,9 +52,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> ReadyToDrawClass;
 
-
 	virtual void Tick(float DeltaTime) override;
-
 
 	AGameModeDuel();
 

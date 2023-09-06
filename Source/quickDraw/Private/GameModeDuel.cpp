@@ -29,18 +29,18 @@ void AGameModeDuel::Tick(float DeltaTime)
 	
 }
 
-FString AGameModeDuel::GamePhaseToString() {
+int AGameModeDuel::GamePhaseToInt() {
 	if (CurrentState == EGamePhases::Intro) {
-		return "intro";
+		return 1;
 	}
 	else if (CurrentState == EGamePhases::Wait) {
-		return "wait";
+		return 2;
 	}
 	else if (CurrentState == EGamePhases::Draw) {
-		return "Draw";
+		return 3;
 	}
 	else {
-		return "Finish";
+		return 4;
 	}
 	
 }

@@ -12,6 +12,9 @@ ASamurai::ASamurai()
 	PrimaryActorTick.bCanEverTick = true;
 
 	PrimarySprite = CreateDefaultSubobject<UPaperSpriteComponent>("PaperSprite");
+	
+	FailureSprite = CreateDefaultSubobject<UPaperSpriteComponent>("Cross");
+	FailureSprite->SetupAttachment(PrimarySprite);
 
 }
 
