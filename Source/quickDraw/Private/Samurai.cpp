@@ -16,6 +16,7 @@ ASamurai::ASamurai()
 	FailureSprite = CreateDefaultSubobject<UPaperSpriteComponent>("Cross");
 	FailureSprite->SetupAttachment(PrimarySprite);
 
+	DefeatedSprite = CreateDefaultSubobject<UPaperSpriteComponent>("DefeatedSprite");
 }
 
 // Called when the game starts or when spawned
@@ -37,4 +38,8 @@ void ASamurai::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ASamurai::Defeated() {
+	PrimarySprite->SetSprite(DefeatedSprite->GetSprite());
 }

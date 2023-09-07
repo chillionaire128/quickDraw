@@ -52,7 +52,20 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> ReadyToDrawClass;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Pawn")
+	TObjectPtr<ASamurai> Player;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Pawn")
+	TObjectPtr<ASamurai> Npc;
+	
+
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void SetGameFinished();
+
+	UFUNCTION(BluePrintCallable)
+	void AttackedSuccesfully(bool isPlayer);
 
 	AGameModeDuel();
 

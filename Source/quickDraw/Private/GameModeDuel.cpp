@@ -2,6 +2,7 @@
 
 
 #include "GameModeDuel.h"
+#include "Samurai.h"
 #include "Engine/GameEngine.h"
 
 AGameModeDuel::AGameModeDuel() {
@@ -44,6 +45,20 @@ int AGameModeDuel::GamePhaseToInt() {
 	}
 	
 }
+
+void AGameModeDuel::SetGameFinished() {
+	CurrentState = EGamePhases::Finish;
+}
+
+void AGameModeDuel::AttackedSuccesfully(bool isPlayer) {
+	if (isPlayer) {
+		Npc->Defeated();
+	}
+	else {
+		Player->Defeated();
+	}
+}
+
 
 float AGameModeDuel::CreateRandomDrawTime(float min, float max) {
 	float random = ((float)rand()) / (float)RAND_MAX;

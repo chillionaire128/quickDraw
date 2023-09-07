@@ -7,6 +7,7 @@
 #include "Samurai.generated.h"
 
 class UPaperSpriteComponent;
+class UPaperSprite;
 
 UCLASS()
 class QUICKDRAW_API ASamurai : public APawn
@@ -24,6 +25,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Sprite)
 	UPaperSpriteComponent* FailureSprite;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Sprite)
+	UPaperSpriteComponent* DefeatedSprite;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -33,4 +37,6 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void Defeated();
 };
